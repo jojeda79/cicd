@@ -25,7 +25,7 @@ jobs:
            path: target/devops.war
      
   deploy:
-    runs-on: gagan-devops
+    runs-on: self-hosted
     environment: prod
     needs: build
     steps:
