@@ -1,0 +1,16 @@
+# Workflow to deploy the artifacts
+name: cd
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+       - name: Deployment using docker
+         run: |
+           docker rm -f web1
+           docker run -dt --name web1 -p 9000:8080 gagandeepthinknyx/intel-app:latest
