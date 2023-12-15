@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gagan-deployment
+  name: jojeda79-deployment
   labels:
-    app: gaganapp
+    app: jojeda79app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: gaganapp
+      app: jojeda79app
   template:
     metadata:
       labels:
-        app: gaganapp
+        app: jojeda79app
     spec:
       containers:
-      - name: gagan-container
-        image: gagandeepthinknyx/intel-app:latest
+      - name: jojeda79-container
+        image: jojeda79deepthinknyx/intel-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gaganapp-lb
+  name: jojeda79app-lb
 spec:
   type: LoadBalancer
   ports:
   - port: 8080
     targetPort: 8080
   selector:
-    app: gaganapp 
+    app: jojeda79app 
